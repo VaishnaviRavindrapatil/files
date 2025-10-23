@@ -94,3 +94,63 @@ class TestTo_uppercase(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+class TestIs_palindrome(unittest.TestCase):
+    def test_is_palindrome_with_palindrome_string():
+        result = Strings.is_palindrome("radar")
+        assert result is True
+    def test_is_palindrome_with_non_palindrome_string():
+        result = Strings.is_palindrome("hello")
+        assert result is False
+    def test_is_palindrome_with_empty_string():
+        result = Strings.is_palindrome("")
+        assert result is True
+    def test_is_palindrome_with_single_character():
+        result = Strings.is_palindrome("a")
+        assert result is True
+    def test_is_palindrome_with_mixed_case_palindrome():
+        result = Strings.is_palindrome("RaceCar")
+        assert result is True
+    def test_is_palindrome_with_mixed_case_non_palindrome():
+        result = Strings.is_palindrome("HelloWorld")
+        assert result is False
+    def test_is_palindrome_with_spaces_and_palindrome():
+        result = Strings.is_palindrome("A man a plan a canal Panama")
+        assert result is True
+    def test_is_palindrome_with_spaces_and_non_palindrome():
+        result = Strings.is_palindrome("This is not a palindrome")
+        assert result is False
+    def test_is_palindrome_with_numbers_and_palindrome():
+        result = Strings.is_palindrome("12321")
+        assert result is True
+    def test_is_palindrome_with_numbers_and_non_palindrome():
+        result = Strings.is_palindrome("12345")
+        assert result is False
+    def test_is_palindrome_with_special_characters_and_palindrome():
+        result = Strings.is_palindrome("!@#$%^&^%$#@!")
+        assert result is True
+    def test_is_palindrome_with_special_characters_and_non_palindrome():
+        result = Strings.is_palindrome("!@#$abc$#@!")
+        assert result is False
+    def test_is_palindrome_with_none_input():
+        try:
+            Strings.is_palindrome(None)
+            assert False, "Expected exception for None input"
+        except TypeError:
+            pass
+    def test_is_palindrome_with_numeric_input():
+        try:
+            Strings.is_palindrome(12321)
+            assert False, "Expected exception for numeric input"
+        except TypeError:
+            pass
+    def test_is_palindrome_with_list_input():
+        try:
+            Strings.is_palindrome(["a", "b", "b", "a"])
+            assert False, "Expected exception for list input"
+        except TypeError:
+            pass
+
+if __name__ == '__main__':
+    unittest.main()
