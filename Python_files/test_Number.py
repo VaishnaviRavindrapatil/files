@@ -53,3 +53,36 @@ class TestAdd_ten(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+class TestFactorial(unittest.TestCase):
+    def test_factorial_positive_integer():
+        result = Number.factorial(5)
+        assert result == 120
+    def test_factorial_zero():
+        result = Number.factorial(0)
+        assert result == 1
+    def test_factorial_one():
+        result = Number.factorial(1)
+        assert result == 1
+    def test_factorial_large_number():
+        result = Number.factorial(10)
+        assert result == 3628800
+    def test_factorial_negative_number():
+        with pytest.raises(ValueError):
+            Number.factorial(-5)
+    def test_factorial_non_integer():
+        with pytest.raises(TypeError):
+            Number.factorial(3.5)
+    def test_factorial_string_input():
+        with pytest.raises(TypeError):
+            Number.factorial("5")
+    def test_factorial_none_input():
+        with pytest.raises(TypeError):
+            Number.factorial(None)
+    def test_factorial_boolean_input():
+        result = Number.factorial(True)
+        assert result == 1
+
+if __name__ == '__main__':
+    unittest.main()
