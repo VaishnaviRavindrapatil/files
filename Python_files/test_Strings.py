@@ -154,3 +154,48 @@ class TestIs_palindrome(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+class TestTo_lowercase(unittest.TestCase):
+    def test_to_lowercase_valid_string():
+        result = Strings.to_lowercase("HELLO")
+        assert result == "hello"
+    def test_to_lowercase_mixed_case_string():
+        result = Strings.to_lowercase("HeLLo WoRLd")
+        assert result == "hello world"
+    def test_to_lowercase_empty_string():
+        result = Strings.to_lowercase("")
+        assert result == ""
+    def test_to_lowercase_already_lowercase_string():
+        result = Strings.to_lowercase("already lowercase")
+        assert result == "already lowercase"
+    def test_to_lowercase_numeric_string():
+        result = Strings.to_lowercase("1234")
+        assert result == "1234"
+    def test_to_lowercase_special_characters():
+        result = Strings.to_lowercase("!@#$%^&*()")
+        assert result == "!@#$%^&*()"
+    def test_to_lowercase_mixed_alphanumeric_special():
+        result = Strings.to_lowercase("HeLLo123!@#")
+        assert result == "hello123!@#"
+    def test_to_lowercase_none_input():
+        try:
+            Strings.to_lowercase(None)
+            assert False, "Expected an exception for None input"
+        except TypeError:
+            pass
+    def test_to_lowercase_integer_input():
+        try:
+            Strings.to_lowercase(12345)
+            assert False, "Expected an exception for integer input"
+        except TypeError:
+            pass
+    def test_to_lowercase_list_input():
+        try:
+            Strings.to_lowercase(["HELLO", "WORLD"])
+            assert False, "Expected an exception for list input"
+        except TypeError:
+            pass
+
+if __name__ == '__main__':
+    unittest.main()

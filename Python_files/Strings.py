@@ -13,3 +13,7 @@ def to_uppercase(s: str) -> str:
 
 def is_palindrome(s: str) -> bool:
     return s == s[::-1]
+
+
+def to_lowercase(string):
+    return string.lower()
