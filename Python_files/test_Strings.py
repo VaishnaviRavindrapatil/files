@@ -199,3 +199,48 @@ class TestTo_lowercase(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+class TestRemove_duplicates(unittest.TestCase):
+    def test_remove_duplicates_valid_input():
+        result = Strings.remove_duplicates("aabbcc")
+        assert result == "abc", f"Expected 'abc', got {result}"
+    def test_remove_duplicates_empty_string():
+        result = Strings.remove_duplicates("")
+        assert result == "", f"Expected '', got {result}"
+    def test_remove_duplicates_single_character():
+        result = Strings.remove_duplicates("a")
+        assert result == "a", f"Expected 'a', got {result}"
+    def test_remove_duplicates_no_duplicates():
+        result = Strings.remove_duplicates("abc")
+        assert result == "abc", f"Expected 'abc', got {result}"
+    def test_remove_duplicates_special_characters():
+        result = Strings.remove_duplicates("!!@@##")
+        assert result == "!@#", f"Expected '!@#', got {result}"
+    def test_remove_duplicates_numbers_in_string():
+        result = Strings.remove_duplicates("112233")
+        assert result == "123", f"Expected '123', got {result}"
+    def test_remove_duplicates_mixed_characters():
+        result = Strings.remove_duplicates("a1a2b3b4")
+        assert result == "a1b234", f"Expected 'a1b234', got {result}"
+    def test_remove_duplicates_non_string_input():
+        try:
+            Strings.remove_duplicates(12345)
+            assert False, "Expected TypeError, but no exception was raised"
+        except TypeError:
+            pass  # Expected behavior
+    def test_remove_duplicates_none_input():
+        try:
+            Strings.remove_duplicates(None)
+            assert False, "Expected TypeError, but no exception was raised"
+        except TypeError:
+            pass  # Expected behavior
+    def test_remove_duplicates_whitespace_string():
+        result = Strings.remove_duplicates("  ")
+        assert result == " ", f"Expected ' ', got {result}"
+    def test_remove_duplicates_mixed_whitespace_and_characters():
+        result = Strings.remove_duplicates("a a b b")
+        assert result == "a b", f"Expected 'a b', got {result}"
+
+if __name__ == '__main__':
+    unittest.main()

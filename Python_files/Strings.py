@@ -17,3 +17,7 @@ def is_palindrome(s: str) -> bool:
 
 def to_lowercase(string):
     return string.lower()
+
+
+def remove_duplicates(s):
+    return ''.join(sorted(set(s), key=s.index))
