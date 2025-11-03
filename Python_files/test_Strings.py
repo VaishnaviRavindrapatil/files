@@ -244,3 +244,41 @@ class TestRemove_duplicates(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+class TestRemove_extra_spaces(unittest.TestCase):
+    def test_remove_extra_spaces_valid_single_space():
+        input_text = "This  is   a    test"
+        expected_output = "This is a test"
+        self.assertEqual(Strings.remove_extra_spaces(input_text), expected_output)
+    def test_remove_extra_spaces_valid_leading_trailing_spaces():
+        input_text = "   Leading and trailing spaces   "
+        expected_output = "Leading and trailing spaces"
+        self.assertEqual(Strings.remove_extra_spaces(input_text), expected_output)
+    def test_remove_extra_spaces_valid_only_spaces():
+        input_text = "         "
+        expected_output = ""
+        self.assertEqual(Strings.remove_extra_spaces(input_text), expected_output)
+    def test_remove_extra_spaces_valid_no_extra_spaces():
+        input_text = "NoExtraSpacesHere"
+        expected_output = "NoExtraSpacesHere"
+        self.assertEqual(Strings.remove_extra_spaces(input_text), expected_output)
+    def test_remove_extra_spaces_valid_empty_string():
+        input_text = ""
+        expected_output = ""
+        self.assertEqual(Strings.remove_extra_spaces(input_text), expected_output)
+    def test_remove_extra_spaces_valid_newline_and_tabs():
+        input_text = "   This\nis\ta test    "
+        expected_output = "This is a test"
+        self.assertEqual(Strings.remove_extra_spaces(input_text), expected_output)
+    def test_remove_extra_spaces_invalid_non_string_input():
+        input_text = 12345  # Non-string input
+        with self.assertRaises(TypeError):
+            Strings.remove_extra_spaces(input_text)
+    def test_remove_extra_spaces_invalid_none_input():
+        input_text = None  # None input
+        with self.assertRaises(TypeError):
+            Strings.remove_extra_spaces(input_text)
+
+if __name__ == '__main__':
+    unittest.main()
