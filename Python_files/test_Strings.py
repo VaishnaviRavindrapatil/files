@@ -330,3 +330,79 @@ class TestReverse_and_lowercase(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+class TestReverse_and_modify_string(unittest.TestCase):
+    def test_reverse_and_modify_string_valid_input():
+        # Test valid input with a normal string
+        result = Strings.reverse_and_modify_string("hello")
+        expected = "olleh"
+        assert result == expected, f"Expected {expected}, but got {result}"
+    def test_reverse_and_modify_string_empty_string():
+        # Test valid input with an empty string
+        result = Strings.reverse_and_modify_string("")
+        expected = ""
+        assert result == expected, f"Expected {expected}, but got {result}"
+    def test_reverse_and_modify_string_single_character():
+        # Test valid input with a single character
+        result = Strings.reverse_and_modify_string("a")
+        expected = "a"
+        assert result == expected, f"Expected {expected}, but got {result}"
+    def test_reverse_and_modify_string_whitespace_string():
+        # Test valid input with a string containing only whitespace
+        result = Strings.reverse_and_modify_string("   ")
+        expected = "   "
+        assert result == expected, f"Expected {expected}, but got {result}"
+    def test_reverse_and_modify_string_special_characters():
+        # Test valid input with special characters
+        result = Strings.reverse_and_modify_string("!@#123")
+        expected = "321#@!"
+        assert result == expected, f"Expected {expected}, but got {result}"
+    def test_reverse_and_modify_string_numeric_string():
+        # Test valid input with a numeric string
+        result = Strings.reverse_and_modify_string("12345")
+        expected = "54321"
+        assert result == expected, f"Expected {expected}, but got {result}"
+    def test_reverse_and_modify_string_mixed_characters():
+        # Test valid input with a mix of characters
+        result = Strings.reverse_and_modify_string("a1b2c3")
+        expected = "3c2b1a"
+        assert result == expected, f"Expected {expected}, but got {result}"
+    def test_reverse_and_modify_string_none_input():
+        # Test invalid input with None
+        try:
+            Strings.reverse_and_modify_string(None)
+            assert False, "Expected TypeError, but no exception was raised"
+        except TypeError:
+            pass
+    def test_reverse_and_modify_string_integer_input():
+        # Test invalid input with an integer
+        try:
+            Strings.reverse_and_modify_string(12345)
+            assert False, "Expected TypeError, but no exception was raised"
+        except TypeError:
+            pass
+    def test_reverse_and_modify_string_list_input():
+        # Test invalid input with a list
+        try:
+            Strings.reverse_and_modify_string(["a", "b", "c"])
+            assert False, "Expected TypeError, but no exception was raised"
+        except TypeError:
+            pass
+    def test_reverse_and_modify_string_boolean_input():
+        # Test invalid input with a boolean
+        try:
+            Strings.reverse_and_modify_string(True)
+            assert False, "Expected TypeError, but no exception was raised"
+        except TypeError:
+            pass
+    def test_reverse_and_modify_string_object_input():
+        # Test invalid input with an object
+        try:
+            Strings.reverse_and_modify_string(object())
+            assert False, "Expected TypeError, but no exception was raised"
+        except TypeError:
+            pass
+
+if __name__ == '__main__':
+    unittest.main()

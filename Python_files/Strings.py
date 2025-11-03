@@ -33,3 +33,7 @@ def reverse_and_uppercase(s):
 
 def reverse_and_lowercase(s):
     return s[::-1].lower()
+
+
+def reverse_and_modify_string(s, digits="123"):
+    return s[::-1].lower() + digits
