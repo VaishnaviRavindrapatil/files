@@ -282,3 +282,51 @@ class TestRemove_extra_spaces(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+class TestReverse_and_lowercase(unittest.TestCase):
+    def test_reverse_and_lowercase_valid_string():
+        result = Strings.reverse_and_lowercase("HelloWorld")
+        assert result == "dlrowolleh"
+    def test_reverse_and_lowercase_empty_string():
+        result = Strings.reverse_and_lowercase("")
+        assert result == ""
+    def test_reverse_and_lowercase_string_with_numbers():
+        result = Strings.reverse_and_lowercase("Python123")
+        assert result == "321nohtyp"
+    def test_reverse_and_lowercase_all_lowercase_string():
+        result = Strings.reverse_and_lowercase("lowercase")
+        assert result == "esacrewol"
+    def test_reverse_and_lowercase_all_uppercase_string():
+        result = Strings.reverse_and_lowercase("UPPERCASE")
+        assert result == "esacreppu"
+    def test_reverse_and_lowercase_mixed_case_string():
+        result = Strings.reverse_and_lowercase("MiXeDCasE")
+        assert result == "esacdexim"
+    def test_reverse_and_lowercase_special_characters():
+        result = Strings.reverse_and_lowercase("!@#Test123$")
+        assert result == "$321tset#@!"
+    def test_reverse_and_lowercase_whitespace_string():
+        result = Strings.reverse_and_lowercase("  Space  ")
+        assert result == "  ecaps  "
+    def test_reverse_and_lowercase_invalid_input_integer():
+        try:
+            Strings.reverse_and_lowercase(12345)
+            assert False, "Expected TypeError for integer input"
+        except TypeError:
+            pass
+    def test_reverse_and_lowercase_invalid_input_none():
+        try:
+            Strings.reverse_and_lowercase(None)
+            assert False, "Expected TypeError for None input"
+        except TypeError:
+            pass
+    def test_reverse_and_lowercase_invalid_input_list():
+        try:
+            Strings.reverse_and_lowercase(["a", "b", "c"])
+            assert False, "Expected TypeError for list input"
+        except TypeError:
+            pass
+
+if __name__ == '__main__':
+    unittest.main()

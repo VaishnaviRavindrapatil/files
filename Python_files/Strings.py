@@ -29,3 +29,7 @@ def remove_extra_spaces(s):
 
 def reverse_and_uppercase(s):
     return s[::-1].upper()
+
+
+def reverse_and_lowercase(s):
+    return s[::-1].lower()
