@@ -43,3 +43,36 @@ class TestArea_of_rhombus(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+class TestCalculate_square_area(unittest.TestCase):
+    def test_calculate_square_area_valid_positive_side():
+        result = Geometry.calculate_square_area(5)
+        assert result == 25, f"Expected 25, but got {result}"
+    def test_calculate_square_area_valid_zero_side():
+        result = Geometry.calculate_square_area(0)
+        assert result == 0, f"Expected 0, but got {result}"
+    def test_calculate_square_area_valid_float_side():
+        result = Geometry.calculate_square_area(4.5)
+        assert result == 20.25, f"Expected 20.25, but got {result}"
+    def test_calculate_square_area_negative_side():
+        try:
+            Geometry.calculate_square_area(-5)
+            assert False, "Expected ValueError for negative side length, but no exception was raised"
+        except ValueError as e:
+            assert str(e) == "Side length cannot be negative", f"Unexpected error message: {str(e)}"
+    def test_calculate_square_area_non_numeric_side():
+        try:
+            Geometry.calculate_square_area("abc")
+            assert False, "Expected TypeError for non-numeric side length, but no exception was raised"
+        except TypeError as e:
+            assert str(e) == "Side length must be a number", f"Unexpected error message: {str(e)}"
+    def test_calculate_square_area_none_side():
+        try:
+            Geometry.calculate_square_area(None)
+            assert False, "Expected TypeError for None as side length, but no exception was raised"
+        except TypeError as e:
+            assert str(e) == "Side length must be a number", f"Unexpected error message: {str(e)}"
+
+if __name__ == '__main__':
+    unittest.main()
