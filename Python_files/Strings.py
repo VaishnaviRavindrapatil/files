@@ -25,3 +25,7 @@ def remove_duplicates(s):
 
 def remove_extra_spaces(s):
     return ' '.join(s.split())
+
+
+def reverse_and_uppercase(s):
+    return s[::-1].upper()
