@@ -140,3 +140,67 @@ class TestGenerated_function(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+class TestGenerated_function(unittest.TestCase):
+    def test_generated_function_valid_input():
+        # Test with valid input
+        input_data = {"shape": "circle", "radius": 5}
+        expected_output = {"area": 78.54, "perimeter": 31.42}  # Example expected output
+        result = Geometry.generated_function(input_data)
+        assert result == expected_output, f"Expected {expected_output}, but got {result}"
+    def test_generated_function_invalid_shape():
+        # Test with invalid shape type
+        input_data = {"shape": "hexagon", "side_length": 5}
+        try:
+            Geometry.generated_function(input_data)
+            assert False, "Expected an exception for an invalid shape type"
+        except ValueError as e:
+            assert str(e) == "Unsupported shape type: hexagon", f"Unexpected exception message: {str(e)}"
+    def test_generated_function_missing_parameters():
+        # Test with missing parameters for the shape
+        input_data = {"shape": "circle"}  # Missing radius
+        try:
+            Geometry.generated_function(input_data)
+            assert False, "Expected an exception for missing parameters"
+        except KeyError as e:
+            assert str(e) == "'radius'", f"Unexpected exception message: {str(e)}"
+    def test_generated_function_invalid_radius():
+        # Test with invalid radius value
+        input_data = {"shape": "circle", "radius": -5}  # Negative radius
+        try:
+            Geometry.generated_function(input_data)
+            assert False, "Expected an exception for invalid radius value"
+        except ValueError as e:
+            assert str(e) == "Radius must be a positive number", f"Unexpected exception message: {str(e)}"
+    def test_generated_function_valid_rectangle():
+        # Test with valid rectangle input
+        input_data = {"shape": "rectangle", "width": 4, "height": 6}
+        expected_output = {"area": 24, "perimeter": 20}  # Example expected output
+        result = Geometry.generated_function(input_data)
+        assert result == expected_output, f"Expected {expected_output}, but got {result}"
+    def test_generated_function_excess_parameters():
+        # Test with excess parameters
+        input_data = {"shape": "circle", "radius": 5, "color": "blue"}  # Extra parameter
+        expected_output = {"area": 78.54, "perimeter": 31.42}  # Example expected output
+        result = Geometry.generated_function(input_data)
+        assert result == expected_output, "Excess parameters should not affect output"
+    def test_generated_function_invalid_type():
+        # Test with invalid type for parameters
+        input_data = {"shape": "circle", "radius": "five"}  # Radius should be a number
+        try:
+            Geometry.generated_function(input_data)
+            assert False, "Expected an exception for invalid parameter type"
+        except TypeError as e:
+            assert str(e) == "Radius must be a number", f"Unexpected exception message: {str(e)}"
+    def test_generated_function_empty_input():
+        # Test with empty input
+        input_data = {}
+        try:
+            Geometry.generated_function(input_data)
+            assert False, "Expected an exception for empty input"
+        except ValueError as e:
+            assert str(e) == "Input data is required", f"Unexpected exception message: {str(e)}"
+
+if __name__ == '__main__':
+    unittest.main()
